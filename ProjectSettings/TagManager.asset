@@ -6,6 +6,11 @@ TagManager:
   tags:
   - CinemachineTarget
   - canPickUp
+  - Glass
+  - Paper
+  - Plastic
+  - Metal
+  - Other
   layers:
   - Default
   - TransparentFX

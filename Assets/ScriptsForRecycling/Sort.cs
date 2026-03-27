@@ -6,6 +6,7 @@ public class Sort : MonoBehaviour
         metal,
         glass,
         paper,
+        plastic,
         other
     };
 
@@ -23,23 +24,5 @@ public class Sort : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Metal")
-        {
-
-        }
-        else if (other.tag == "Glass")
-        {
-
-        }
-        else if (other.tag == "Paper")
-        {
-
-        }
-        else if (other.tag == "Other")
-        {
-
-        }
-    }
+    
 }
