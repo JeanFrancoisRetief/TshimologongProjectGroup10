@@ -92,10 +92,12 @@ public class SortTrigger : MonoBehaviour
                 }
             }
         }
+        
         other.enabled = false;
         //other.transform.position = new Vector3(0, -500, 0);
-        //Destroy(other);
-        scoreScript.pickupScript.heldObj = null;
+        Destroy(other);
+        //scoreScript.pickupScript.heldObj = null;
+
     }
 
 
