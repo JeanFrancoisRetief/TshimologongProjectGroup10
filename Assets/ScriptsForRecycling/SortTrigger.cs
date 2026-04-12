@@ -118,11 +118,11 @@ public class SortTrigger : MonoBehaviour
                     if (sortScript.thisObjectMatType == Sort.MaterialType.other)
                     {
                         //Correct
-                        scoreScript.scoreValue++;
+                        //scoreScript.scoreValue++;
                     }
                     else
                     {
-                        scoreScript.scoreValue--;
+                        //scoreScript.scoreValue--;
                     }
                 }
             }
