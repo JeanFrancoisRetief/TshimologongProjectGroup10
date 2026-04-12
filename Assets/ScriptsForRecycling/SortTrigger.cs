@@ -3,102 +3,137 @@ using UnityEngine;
 public class SortTrigger : MonoBehaviour
 {
     public Score scoreScript;
+
+    public PickUpScript pickUpScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (this.gameObject.tag == "Metal")
+        if (!pickUpScript.isPickedUp)
         {
-            if (other.TryGetComponent<Sort>(out Sort sortScript)) ;
+            if (this.gameObject.tag == "Metal")
             {
-                if(sortScript.thisObjectMatType == Sort.MaterialType.metal)
+                if (other.TryGetComponent<Sort>(out Sort sortScript)) ;
                 {
-                    //Correct
-                    scoreScript.scoreValue++;
-                }
-                else
-                {
-                    scoreScript.scoreValue--;
+                    if (sortScript.thisObjectMatType == Sort.MaterialType.metal)
+                    {
+                        //Correct
+                        scoreScript.scoreValue++;
+                    }
+                    else
+                    {
+                        scoreScript.scoreValue--;
+                    }
                 }
             }
-        }
-        else if (this.gameObject.tag == "Glass")
-        {
-            if (other.TryGetComponent<Sort>(out Sort sortScript)) ;
+            else if (this.gameObject.tag == "Glass")
             {
-                if (sortScript.thisObjectMatType == Sort.MaterialType.glass)
+                if (other.TryGetComponent<Sort>(out Sort sortScript)) ;
                 {
-                    //Correct
-                    scoreScript.scoreValue++;
-                }
-                else
-                {
-                    scoreScript.scoreValue--;
+                    if (sortScript.thisObjectMatType == Sort.MaterialType.glass)
+                    {
+                        //Correct
+                        scoreScript.scoreValue++;
+                    }
+                    else
+                    {
+                        scoreScript.scoreValue--;
+                    }
                 }
             }
-        }
-        else if (this.gameObject.tag == "Paper")
-        {
-            if (other.TryGetComponent<Sort>(out Sort sortScript)) ;
+            else if (this.gameObject.tag == "Paper")
             {
-                if (sortScript.thisObjectMatType == Sort.MaterialType.paper)
+                if (other.TryGetComponent<Sort>(out Sort sortScript)) ;
                 {
-                    //Correct
-                    scoreScript.scoreValue++;
-                }
-                else
-                {
-                    scoreScript.scoreValue--;
+                    if (sortScript.thisObjectMatType == Sort.MaterialType.paper)
+                    {
+                        //Correct
+                        scoreScript.scoreValue++;
+                    }
+                    else
+                    {
+                        scoreScript.scoreValue--;
+                    }
                 }
             }
-        }
-        else if (this.gameObject.tag == "Plastic")
-        {
-            if (other.TryGetComponent<Sort>(out Sort sortScript)) ;
+            else if (this.gameObject.tag == "Plastic")
             {
-                if (sortScript.thisObjectMatType == Sort.MaterialType.plastic)
+                if (other.TryGetComponent<Sort>(out Sort sortScript)) ;
                 {
-                    //Correct
-                    scoreScript.scoreValue++;
-                }
-                else
-                {
-                    scoreScript.scoreValue--;
+                    if (sortScript.thisObjectMatType == Sort.MaterialType.plastic)
+                    {
+                        //Correct
+                        scoreScript.scoreValue++;
+                    }
+                    else
+                    {
+                        scoreScript.scoreValue--;
+                    }
                 }
             }
-        }
-        else if (this.gameObject.tag == "Other")
-        {
-            if (other.TryGetComponent<Sort>(out Sort sortScript)) ;
+            else if (this.gameObject.tag == "Other")
             {
-                if (sortScript.thisObjectMatType == Sort.MaterialType.other)
+                if (other.TryGetComponent<Sort>(out Sort sortScript)) ;
                 {
-                    //Correct
-                    scoreScript.scoreValue++;
-                }
-                else
-                {
-                    scoreScript.scoreValue--;
+                    if (sortScript.thisObjectMatType == Sort.MaterialType.other)
+                    {
+                        //Correct
+                        scoreScript.scoreValue++;
+                    }
+                    else
+                    {
+                        scoreScript.scoreValue--;
+                    }
                 }
             }
+
+            other.enabled = false;
+            //other.transform.position = new Vector3(0, -500, 0);
+            Destroy(other);
+            //scoreScript.pickupScript.heldObj = null;
         }
-        
-        other.enabled = false;
-        //other.transform.position = new Vector3(0, -500, 0);
-        Destroy(other);
-        //scoreScript.pickupScript.heldObj = null;
+
+
 
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (!pickUpScript.isPickedUp)
+        {
+            if (this.gameObject.tag == "Other")
+            {
+                if (other.TryGetComponent<Sort>(out Sort sortScript)) ;
+                {
+                    if (sortScript.thisObjectMatType == Sort.MaterialType.other)
+                    {
+                        //Correct
+                        scoreScript.scoreValue++;
+                    }
+                    else
+                    {
+                        scoreScript.scoreValue--;
+                    }
+                }
+            }
 
+            other.enabled = false;
+            //other.transform.position = new Vector3(0, -500, 0);
+            Destroy(other);
+            //scoreScript.pickupScript.heldObj = null;
+        }
+
+
+    }
 }
+

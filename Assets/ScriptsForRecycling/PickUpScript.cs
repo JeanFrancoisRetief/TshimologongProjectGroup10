@@ -17,6 +17,8 @@ public class PickUpScript : MonoBehaviour
 
     private MoveObject heldObjMoveObj;
 
+    public bool isPickedUp;
+
     //Reference to script which includes mouse movement of player (looking around)
     //we want to disable the player looking around when rotating the object
     //example below 
@@ -24,7 +26,8 @@ public class PickUpScript : MonoBehaviour
     void Start()
     {
         LayerNumber = LayerMask.NameToLayer("holdLayer"); //if your holdLayer is named differently make sure to change this ""
-
+        
+        isPickedUp = false;
         //mouseLookScript = player.GetComponent<MouseLookScript>();
     }
     void Update()
@@ -80,6 +83,9 @@ public class PickUpScript : MonoBehaviour
             
             if(heldObj.TryGetComponent<MoveObject>(out heldObjMoveObj))
                 heldObjMoveObj.enabled = false;
+
+
+            isPickedUp = true;
         }
     }
     void DropObject()
@@ -90,6 +96,8 @@ public class PickUpScript : MonoBehaviour
         heldObjRb.isKinematic = false;
         heldObj.transform.parent = null; //unparent object
         heldObj = null; //undefine game object
+
+        isPickedUp = false;
     }
     void MoveObject()
     {
@@ -129,6 +137,8 @@ public class PickUpScript : MonoBehaviour
         heldObj.transform.parent = null;
         heldObjRb.AddForce(transform.forward * throwForce);
         heldObj = null;
+
+        isPickedUp = false;
     }
     void StopClipping() //function only called when dropping/throwing
     {
