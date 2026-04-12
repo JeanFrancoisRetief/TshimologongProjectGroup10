@@ -18,8 +18,19 @@ public class SpawnScript : MonoBehaviour
 
     void Awake()
     {
+        //StartCoroutine(SpawnRoutine());
+        //randomObj = paperBook;
+    }
+
+    void OnEnable()
+    {
         StartCoroutine(SpawnRoutine());
         randomObj = paperBook;
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(SpawnRoutine());
     }
 
     // Update is called once per frame
