@@ -3,6 +3,7 @@ using UnityEngine;
 public class Coins : MonoBehaviour
 {
     public float spinSpeed = 50f;
+    public PlatformerScore platformerScoreScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +21,7 @@ public class Coins : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            platformerScoreScript.score++;
             gameObject.SetActiveRecursively(false);
         }
         
