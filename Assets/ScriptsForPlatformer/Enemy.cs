@@ -7,10 +7,14 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent agent;
 
     private float dist;
+
+    public int enemyHealth;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        enemyHealth = 3;
+        
     }
 
     // Update is called once per frame
@@ -26,5 +30,11 @@ public class Enemy : MonoBehaviour
             }
             
         }
+
+    }
+
+    public void DamageEnemy()
+    {
+        enemyHealth--;
     }
 }

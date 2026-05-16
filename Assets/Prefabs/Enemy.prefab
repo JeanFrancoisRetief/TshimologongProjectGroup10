@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c0d9055cbe80e40831640e5f598dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
-  enemyHealth: 0
+  enemyScript: {fileID: 2204841368850024446}
   Enemy: {fileID: 8430693242719327457}
   FullHealthState: {fileID: 8887617729360741395}
   TwoHealthState: {fileID: 8439191706943511951}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 2204841368850024446}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,7 +273,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.56, y: 0.36, z: 39.14}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4621317359952188394}
@@ -395,6 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   player: {fileID: 0}
+  enemyHealth: 0
 --- !u!1 &8439191706943511951
 GameObject:
   m_ObjectHideFlags: 0

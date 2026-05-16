@@ -6,6 +6,7 @@ public class FirstVsThirdPerson : MonoBehaviour
 
     public GameObject ThirdPersonCharacter;
     public GameObject ThirdPersonCam;
+    public GameObject Tuttext;
 
     public GameObject FirstPersonCharacter;
     public GameObject FirstPersonCam;
@@ -30,6 +31,7 @@ public class FirstVsThirdPerson : MonoBehaviour
         {
             ThirdPersonCharacter.SetActive(true);
             ThirdPersonCam.SetActive(true);
+            Tuttext.SetActive(true);
 
             FirstPersonCharacter.SetActive(false);
             FirstPersonCam.SetActive(false);
@@ -39,6 +41,7 @@ public class FirstVsThirdPerson : MonoBehaviour
         {
             ThirdPersonCharacter.SetActive(false);
             ThirdPersonCam.SetActive(false);
+            Tuttext.SetActive(false);
 
             FirstPersonCharacter.SetActive(true);
             FirstPersonCam.SetActive(true);
