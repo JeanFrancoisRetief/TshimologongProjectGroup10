@@ -11,6 +11,8 @@ TagManager:
   - Plastic
   - Metal
   - Other
+  - Projectile
+  - Enemy
   layers:
   - Default
   - TransparentFX
