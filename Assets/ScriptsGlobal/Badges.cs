@@ -32,6 +32,12 @@ public class Badges : MonoBehaviour
     {
         BadgesPanel.SetActive(false);
         isPanelActive = false;
+
+        // 1. Disable VSync (required for targetFrameRate to work on most platforms)
+        QualitySettings.vSyncCount = 0;
+
+        // 2. Set the desired frame rate
+        Application.targetFrameRate = 30;
     }
 
     // Update is called once per frame
