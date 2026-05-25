@@ -9,6 +9,8 @@ public class EnemyDamage : MonoBehaviour
     public GameObject TwoHealthState;
     public GameObject OneHealthState;
 
+    public PlatformerScore platformerScoreScript;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,6 +36,9 @@ public class EnemyDamage : MonoBehaviour
         }
         else if (enemyScript.enemyHealth == 0)
         {
+            platformerScoreScript.enemyKillCount++;
+
+
             Enemy.SetActiveRecursively(false);
         }
 

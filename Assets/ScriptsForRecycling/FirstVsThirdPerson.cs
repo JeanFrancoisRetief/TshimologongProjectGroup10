@@ -12,6 +12,8 @@ public class FirstVsThirdPerson : MonoBehaviour
     public GameObject FirstPersonCam;
     public GameObject FirstPersonCamHolder;
 
+    public GameObject BugBlockers;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,6 +38,8 @@ public class FirstVsThirdPerson : MonoBehaviour
             FirstPersonCharacter.SetActive(false);
             FirstPersonCam.SetActive(false);
             FirstPersonCamHolder.SetActive(false);
+
+            BugBlockers.SetActive(true);
         }
         else
         {
@@ -46,6 +50,8 @@ public class FirstVsThirdPerson : MonoBehaviour
             FirstPersonCharacter.SetActive(true);
             FirstPersonCam.SetActive(true);
             FirstPersonCamHolder.SetActive(true);
+
+            BugBlockers.SetActive(false);
         }
 
         
