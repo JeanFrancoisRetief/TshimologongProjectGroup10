@@ -18,9 +18,14 @@ public class HealthKits : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        playerHealthScript.playerHealth += 25*30;
+        if(other.tag == "Player")
+        {
+            playerHealthScript.playerHealth += 25 * 30;
 
-        HealthHitPrefab.SetActiveRecursively(false);
+            HealthHitPrefab.SetActiveRecursively(false);
+        }
+        
+        
 
     }
 }
