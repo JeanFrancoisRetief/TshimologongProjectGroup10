@@ -36,7 +36,7 @@ public class ArtifactTrigger : MonoBehaviour
                 artifactsScript.Artifact002.SetActiveRecursively(true);
             }
 
-
+            
 
 
 
