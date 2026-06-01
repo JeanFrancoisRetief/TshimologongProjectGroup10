@@ -88,19 +88,24 @@ public class SortTrigger : MonoBehaviour
                     if (sortScript.thisObjectMatType == Sort.MaterialType.other)
                     {
                         //Correct
-                        scoreScript.scoreValue++;
+                        //scoreScript.scoreValue++;
                     }
                     else
                     {
-                        scoreScript.scoreValue--;
+                        //scoreScript.scoreValue--;
                     }
                 }
             }
 
-            other.enabled = false;
-            //other.transform.position = new Vector3(0, -500, 0);
-            Destroy(other);
-            //scoreScript.pickupScript.heldObj = null;
+            if(other.tag != "Player")
+            {
+                other.enabled = false;
+                //other.transform.position = new Vector3(0, -500, 0);
+                Destroy(other);
+                //scoreScript.pickupScript.heldObj = null;
+            }
+
+
         }
 
 
@@ -118,19 +123,22 @@ public class SortTrigger : MonoBehaviour
                     if (sortScript.thisObjectMatType == Sort.MaterialType.other)
                     {
                         //Correct
-                        //scoreScript.scoreValue++;
+                        scoreScript.scoreValue++;
                     }
                     else
                     {
-                        //scoreScript.scoreValue--;
+                        scoreScript.scoreValue--;
                     }
                 }
             }
 
-            other.enabled = false;
-            //other.transform.position = new Vector3(0, -500, 0);
-            Destroy(other);
-            //scoreScript.pickupScript.heldObj = null;
+            if (other.tag != "Player")
+            {
+                other.enabled = false;
+                //other.transform.position = new Vector3(0, -500, 0);
+                Destroy(other);
+                //scoreScript.pickupScript.heldObj = null;
+            }
         }
 
 

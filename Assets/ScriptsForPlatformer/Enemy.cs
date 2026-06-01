@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     private float dist;
 
     public int enemyHealth;
+
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
