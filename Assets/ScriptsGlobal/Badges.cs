@@ -6,6 +6,13 @@ public class Badges : MonoBehaviour
     private bool isPanelActive;
     public Score scoreScript;
 
+    public PlatformerScore platformerScoreScript;
+    public GameObject player;
+
+    public Artifacts artifactsScript;
+
+    public StressManagerMainScript stressManagerMainScript;
+
     [Header("Recycle")]
     public GameObject BadgeCover001;
     public GameObject BadgeCover002;
@@ -74,6 +81,45 @@ public class Badges : MonoBehaviour
             BadgeCover003.SetActive(false);
         }
 
+        //platformer game
+        if (player.transform.position.y > 6)
+        {
+            BadgeCover010.SetActive(false);
+        }
+        if (platformerScoreScript.score >= 180)
+        {
+            BadgeCover011.SetActive(false);
+        }
+        if (platformerScoreScript.enemyKillCount >= 25)
+        {
+            BadgeCover012.SetActive(false);
+        }
+        //artifact game
+        if (artifactsScript.ArtifactCount >= 1)
+        {
+            BadgeCover004.SetActive(false);
+        }
+        if (artifactsScript.Artifact003.active)
+        {
+            BadgeCover005.SetActive(false);
+        }
+        if (artifactsScript.ArtifactCount >= 10)
+        {
+            BadgeCover006.SetActive(false);
+        }
 
+        //stress game
+        if(stressManagerMainScript.GrandTotalPerformancePoints >= 500)
+        {
+            BadgeCover007.SetActive(false);
+        }
+        if (stressManagerMainScript.MentalHealthPoints >= 100)
+        {
+            BadgeCover008.SetActive(false);
+        }
+        if (stressManagerMainScript.StaminaPoints <= 0)
+        {
+            BadgeCover009.SetActive(false);
+        }
     }
 }
