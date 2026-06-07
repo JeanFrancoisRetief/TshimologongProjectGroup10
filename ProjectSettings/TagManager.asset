@@ -13,6 +13,7 @@ TagManager:
   - Other
   - Projectile
   - Enemy
+  - TriggerTriggerer
   layers:
   - Default
   - TransparentFX

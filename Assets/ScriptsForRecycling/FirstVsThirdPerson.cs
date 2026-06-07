@@ -63,15 +63,42 @@ public class FirstVsThirdPerson : MonoBehaviour
             {
                 FirstPersonCharacter.transform.position = ThirdPersonCharacter.transform.position;
                 FirstPersonCharacter.transform.rotation = ThirdPersonCharacter.transform.rotation;
+
+                FirstPersonCam.transform.rotation = ThirdPersonCam.transform.rotation;
             }
             else
             {
                 ThirdPersonCharacter.transform.position = FirstPersonCharacter.transform.position;
                 ThirdPersonCharacter.transform.rotation = FirstPersonCharacter.transform.rotation;
+
+                ThirdPersonCam.transform.rotation = FirstPersonCam.transform.rotation;
             }
 
 
                 isThirdPerson = !isThirdPerson;
         }
     }
+
+    public void switchCamMode()
+    {
+        if (isThirdPerson)
+        {
+            FirstPersonCharacter.transform.position = ThirdPersonCharacter.transform.position;
+            FirstPersonCharacter.transform.rotation = ThirdPersonCharacter.transform.rotation;
+
+            FirstPersonCam.transform.rotation = ThirdPersonCam.transform.rotation;
+        }
+        else
+        {
+            ThirdPersonCharacter.transform.position = FirstPersonCharacter.transform.position;
+            ThirdPersonCharacter.transform.rotation = FirstPersonCharacter.transform.rotation;
+
+            ThirdPersonCam.transform.rotation = FirstPersonCam.transform.rotation;
+        }
+
+
+        isThirdPerson = !isThirdPerson;
+    }
 }
+
+
