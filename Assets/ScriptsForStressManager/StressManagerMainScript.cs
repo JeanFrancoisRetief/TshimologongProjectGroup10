@@ -165,6 +165,38 @@ public class StressManagerMainScript : MonoBehaviour
         RandomizeTaskList();
     }
 
+    public void RestartMinigame()
+    {
+        GrandTotalPerformancePoints = 0;
+
+        DayCounter = 1;
+
+        //init values
+        MentalHealthPoints = 50;
+        StaminaPoints = 50;
+        PerformancePoints = 0;
+        Hours = 24;
+
+        currentMHPaddition = 0;
+        currentSPaddition = 0;
+        currentPPaddition = 0;
+        currentHaddition = 0;
+
+        smallTaskClicked = false;
+        mediumTaskClicked = false;
+        largeTaskClicked = false;
+
+        RRsleepClicked = false;
+        RRnapClicked = false;
+        RRtvClicked = false;
+        RRvideogamesClicked = false;
+
+        ErrorPanel.SetActive(false);
+        WeekEndPanel.SetActive(false);
+
+        RandomizeTaskList();
+    }
+
     // Update is called once per frame
     void Update()
     {
