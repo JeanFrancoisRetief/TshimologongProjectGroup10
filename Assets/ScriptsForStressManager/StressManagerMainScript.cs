@@ -65,6 +65,71 @@ public class StressManagerMainScript : MonoBehaviour
     public GameObject ErrorPanel;
     public GameObject WeekEndPanel;
 
+    public GameObject MHx;
+    public GameObject Ex;
+    public GameObject Hx;
+
+    public TMP_Text currentSmallTaskText;
+    public TMP_Text currentMedTaskText;
+    public TMP_Text currentLargeTaskText;
+
+    string[] smallTasks =
+    {
+    "Reply to routine emails",
+    "Organise desktop files and folders",
+    "Update calendar appointments",
+    "Refill printer paper or office supplies",
+    "Proofread a short document",
+    "Schedule a meeting",
+    "Scan and archive paperwork",
+    "Prepare a basic meeting agenda",
+    "Submit timesheets or attendance records",
+    "Follow up on a simple request or reminder",
+    "Clean and organise workspace",
+    "File invoices or receipts",
+    "Update contact lists",
+    "Prepare and send meeting invites",
+    "Check and restock stationery supplies"
+    };
+
+    string[] mediumTasks =
+    {
+    "Compile meeting notes and distribute minutes",
+    "Prepare a presentation draft",
+    "Conduct data entry for records or reports",
+    "Reconcile expense claims or receipts",
+    "Organise a filing cabinet or digital archive",
+    "Coordinate a team meeting or workshop logistics",
+    "Create a weekly progress report",
+    "Train a colleague on a simple process",
+    "Review and edit departmental documents",
+    "Compare vendor quotes or service options",
+    "Prepare onboarding materials for a new employee",
+    "Audit office inventory",
+    "Process purchase requests or procurement paperwork",
+    "Create or update spreadsheets for tracking information",
+    "Conduct routine system or records checks"
+    };
+
+    string[] largeTasks =
+    {
+    "Plan and coordinate a small office event or team meeting",
+    "Complete a detailed monthly report",
+    "Reorganise a shared digital filing system",
+    "Conduct employee onboarding for a new staff member",
+    "Perform a full inventory count and reconciliation",
+    "Migrate or clean up outdated data records",
+    "Create a new workflow or office procedure document",
+    "Prepare a comprehensive client or stakeholder presentation",
+    "Coordinate travel arrangements for multiple staff members",
+    "Review and update policy or procedural documents",
+    "Conduct a department-wide document audit",
+    "Set up and test equipment for a major meeting or workshop",
+    "Build a project tracker or reporting dashboard",
+    "Organise and archive legacy paperwork or files",
+    "Plan and execute a full-day meeting schedule or training session"
+    };
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -96,6 +161,8 @@ public class StressManagerMainScript : MonoBehaviour
 
         ErrorPanel.SetActive(false);
         WeekEndPanel.SetActive(false);
+
+        RandomizeTaskList();
     }
 
     // Update is called once per frame
@@ -232,6 +299,7 @@ public class StressManagerMainScript : MonoBehaviour
         if(DayCounter < 5)
         {
             DayCounter++;
+            RandomizeTaskList();
         }
         else
         {
@@ -251,6 +319,21 @@ public class StressManagerMainScript : MonoBehaviour
         float SPTestValue = StaminaPoints + currentSPaddition;
         float HTestValue = Hours + currentHaddition;
 
+        if(MHPTestValue < 0)
+        {
+            MHx.SetActive(true);
+        }
+
+        if (SPTestValue < 0)
+        {
+            Ex.SetActive(true);
+        }
+
+        if (HTestValue < 0)
+        {
+            Hx.SetActive(true);
+        }
+
 
         if ((MHPTestValue < 0) || (SPTestValue < 0) || (HTestValue < 0))
         {
@@ -263,6 +346,12 @@ public class StressManagerMainScript : MonoBehaviour
             
 
             AddToShedule();
+
+            RandomizeTaskList();
+
+            MHx.SetActive(false);
+            Ex.SetActive(false);
+            Hx.SetActive(false);
         }
     }
 
@@ -457,5 +546,11 @@ public class StressManagerMainScript : MonoBehaviour
         RRMeditateClicked = !RRMeditateClicked;
     }
 
+    public void RandomizeTaskList()
+    {
+        currentSmallTaskText.text = "Small Task: " + smallTasks[Random.Range(0, smallTasks.Length)];
+        currentMedTaskText.text = "Meduim Task: " + mediumTasks[Random.Range(0, mediumTasks.Length)];
+        currentLargeTaskText.text = "Large Task: " + largeTasks[Random.Range(0, largeTasks.Length)];
+    }
 
 }
