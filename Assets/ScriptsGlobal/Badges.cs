@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Badges : MonoBehaviour
@@ -14,6 +15,23 @@ public class Badges : MonoBehaviour
     public StressManagerMainScript stressManagerMainScript;
 
     public GameObject WinPanel;
+
+    public int badgeCount;
+    public TMP_Text BadgeCountText;
+    public GameObject notifcationIcon;
+    private int badge001Count;
+    private int badge002Count;
+    private int badge003Count;
+    private int badge004Count;
+    private int badge005Count;
+    private int badge006Count;
+    private int badge007Count;
+    private int badge008Count;
+    private int badge009Count;
+    private int badge010Count;
+    private int badge011Count;
+    private int badge012Count;
+    private bool checkedBadge;
 
     [Header("Recycle")]
     public GameObject BadgeCover001;
@@ -50,6 +68,7 @@ public class Badges : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        notifcationIcon.SetActive(false);
         BadgesPanel.SetActive(false);
         isPanelActive = false;
 
@@ -76,22 +95,43 @@ public class Badges : MonoBehaviour
         gotBadge010 = false;
         gotBadge011 = false;
         gotBadge012 = false;
+
+        
+        badge001Count = 0;
+        badge002Count = 0;
+        badge003Count = 0;
+        badge004Count = 0;
+        badge005Count = 0;
+        badge006Count = 0;
+        badge007Count = 0;
+        badge008Count = 0;
+        badge009Count = 0;
+        badge010Count = 0;
+        badge011Count = 0;
+        badge012Count = 0;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab))
+        badgeCount = badge001Count + badge002Count + badge003Count + badge004Count+ badge005Count + badge006Count + badge007Count
+            + badge008Count + badge009Count + badge010Count + badge011Count + badge012Count;
+        BadgeCountText.text = badgeCount.ToString() + "/12";
+
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if(isPanelActive)
             {
                 BadgesPanel.SetActive(false);
                 isPanelActive = false;
+                notifcationIcon.SetActive(false);
             }
             else
             {
                 BadgesPanel.SetActive(true);
                 isPanelActive = true;
+                notifcationIcon.SetActive(false);
             }
         }
 
@@ -101,18 +141,22 @@ public class Badges : MonoBehaviour
         {
             BadgeCover001.SetActive(false);
             gotBadge001 = true;
+            badge001Count = 1;
+
         }
 
         if(scoreScript.scoreValue == 30)
         {
             BadgeCover002.SetActive(false);
             gotBadge002 = true;
+            badge002Count = 1;
         }
 
         if (scoreScript.scoreValue == -10)
         {
             BadgeCover003.SetActive(false);
             gotBadge003 = true;
+            badge003Count = 1;
         }
 
         //platformer game
@@ -120,32 +164,38 @@ public class Badges : MonoBehaviour
         {
             BadgeCover010.SetActive(false);
             gotBadge010 = true;
+            badge010Count = 1;
         }
         if (platformerScoreScript.score >= 180)
         {
             BadgeCover011.SetActive(false);
             gotBadge011 = true;
+            badge011Count = 1;
         }
         if (platformerScoreScript.enemyKillCount >= 25)
         {
             BadgeCover012.SetActive(false);
             gotBadge012 = true;
+            badge012Count = 1;
         }
         //artifact game
         if (artifactsScript.ArtifactCount >= 1)
         {
             BadgeCover004.SetActive(false);
             gotBadge004 = true;
+            badge004Count = 1;
         }
         if (artifactsScript.Artifact003.active)
         {
             BadgeCover005.SetActive(false);
             gotBadge005 = true;
+            badge005Count = 1;
         }
         if (artifactsScript.ArtifactCount >= 10)
         {
             BadgeCover006.SetActive(false);
             gotBadge006 = true;
+            badge006Count = 1;
         }
 
         //stress game
@@ -153,16 +203,19 @@ public class Badges : MonoBehaviour
         {
             BadgeCover007.SetActive(false);
             gotBadge007 = true;
+            badge007Count = 1;
         }
         if (stressManagerMainScript.MentalHealthPoints >= 100)
         {
             BadgeCover008.SetActive(false);
             gotBadge008 = true;
+            badge008Count = 1;
         }
         if (stressManagerMainScript.StaminaPoints <= 0)
         {
             BadgeCover009.SetActive(false);
             gotBadge009 = true;
+            badge009Count = 1;
         }
 
 
